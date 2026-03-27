@@ -50,6 +50,13 @@
             <groupId>org.telegram</groupId>
             <artifactId>telegrambots</artifactId>
             <version>${telegrambots.version}</version>
+            <exclusions>
+                <!-- jackson-module-jaxb-annotations needs javax.xml.bind which was removed in Java 9+ -->
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.module</groupId>
+                    <artifactId>jackson-module-jaxb-annotations</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- PostgreSQL -->

@@ -1,7 +1,9 @@
 package com.mfood.bot;
 
+import com.mfood.bot.presentation.bot.MFoodBot;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.TestPropertySource;
 
 @SpringBootTest
@@ -14,9 +16,14 @@ import org.springframework.test.context.TestPropertySource;
         "spring.datasource.password=",
         "spring.jpa.hibernate.ddl-auto=create-drop",
         "spring.flyway.enabled=false",
-        "spring.data.redis.url=redis://localhost:6379"
+        "spring.data.redis.url=redis://localhost:6379",
+        "spring.data.redis.repositories.enabled=false"
 })
 class MFoodApplicationTests {
+
+    // Mock the bot to prevent actual Telegram API registration during tests
+    @MockBean
+    MFoodBot mFoodBot;
 
     @Test
     void contextLoads() {
