@@ -10,3 +10,4 @@ CREATE TABLE meal_items (
     carbs DOUBLE PRECISION DEFAULT 0,
     edamam_food_id VARCHAR(255)
 );
+CREATE INDEX idx_meal_items_meal_id ON meal_items(meal_id);

@@ -9,3 +9,4 @@ CREATE TABLE subscriptions (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+CREATE INDEX idx_subscriptions_user_id ON subscriptions(user_id);

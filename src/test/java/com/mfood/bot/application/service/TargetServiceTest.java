@@ -56,7 +56,7 @@ class TargetServiceTest {
     }
 
     @Test
-    void computeDailyTargets_maleModerateMaintan_correctBMR() {
+    void computeDailyTargets_maleModerateMaintain_correctBMR() {
         // BMR for male: 10*70 + 6.25*175 - 5*25 + 5 = 700 + 1093.75 - 125 + 5 = 1673.75
         // TDEE = 1673.75 * 1.55 = 2594.3125
         // Goal: MAINTAIN (0), so total = 2594.3

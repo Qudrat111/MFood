@@ -9,6 +9,7 @@ import com.mfood.bot.application.service.UserService;
 import com.mfood.bot.domain.model.Meal;
 import com.mfood.bot.domain.model.User;
 import com.mfood.bot.infrastructure.config.EdamamProperties;
+import com.mfood.bot.infrastructure.config.TelegramBotProperties;
 import com.mfood.bot.infrastructure.edamam.EdamamClient;
 import com.mfood.bot.presentation.keyboard.InlineKeyboardFactory;
 import com.mfood.bot.presentation.keyboard.MainMenuKeyboard;
@@ -35,6 +36,7 @@ public class MealHandler {
     private final MessageService messageService;
     private final EdamamClient edamamClient;
     private final EdamamProperties edamamProperties;
+    private final TelegramBotProperties botProperties;
     private final InlineKeyboardFactory inlineKeyboardFactory;
     private final MainMenuKeyboard mainMenuKeyboard;
     private final UserService userService;
@@ -61,7 +63,7 @@ public class MealHandler {
             GetFile getFileMethod = new GetFile(fileId);
             File file = bot.execute(getFileMethod);
             String fileUrl = "https://api.telegram.org/file/bot" +
-                    edamamProperties.getAppId() + "/" + file.getFilePath();
+                    botProperties.getToken() + "/" + file.getFilePath();
 
             List<FoodItemDto> items = edamamClient.analyzeImage(fileUrl,
                     edamamProperties.getAppId(), edamamProperties.getAppKey()).block();
